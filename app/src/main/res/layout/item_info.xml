@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="30dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tvTopLine"
+            android:layout_width="0.5dp"
+            android:layout_height="11dp"
+            android:layout_centerHorizontal="true"
+            android:background="#999" />
+        <TextView
+            android:id="@+id/tvDot"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_below="@id/tvTopLine"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/timeline_dot" />
+
+        <TextView
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tvDot"
+            android:layout_centerHorizontal="true"
+            android:background="#999" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/right_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="6dp"
+        android:paddingRight="3dp"
+        android:paddingLeft="3dp"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:id="@+id/tvPublisher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="publisher"
+            android:textColor="#999"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPublisher"
+            android:layout_marginTop="6dp"
+            android:text="This is content..."
+            android:textColor="#000"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</LinearLayout>
