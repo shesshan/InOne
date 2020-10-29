@@ -1,63 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/item_info"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="30dp"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/tvTopLine"
-            android:layout_width="0.5dp"
-            android:layout_height="11dp"
-            android:layout_centerHorizontal="true"
-            android:background="#999" />
-        <TextView
-            android:id="@+id/tvDot"
-            android:layout_width="5dp"
-            android:layout_height="5dp"
-            android:layout_below="@id/tvTopLine"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/timeline_dot" />
+    <LinearLayout
+        android:id="@+id/publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:layout_below="@id/tvDot"
-            android:layout_centerHorizontal="true"
-            android:background="#999" />
+        <ImageView
+            android:id="@+id/ivPublisherLogo"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@mipmap/swufe_info_logo"
+            android:scaleType="centerInside"
+            android:tileMode="disabled" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/right_info"
+    <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="6dp"
-        android:paddingRight="3dp"
-        android:paddingLeft="3dp"
-        android:paddingTop="6dp">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/publisher"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
 
         <TextView
-            android:id="@+id/tvPublisher"
+            android:id="@+id/tvPublisherName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:text="publisher"
-            android:textColor="#999"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/tvContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvPublisher"
-            android:layout_marginTop="6dp"
-            android:text="This is content..."
-            android:textColor="#000"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="20dp"
+            android:text="经济信息工程学院"
+            android:textColor="#000000"
             android:textSize="15sp" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/tvDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="5dp"
+            android:text="西南财经大学第三届国际金融科技论坛SWUFE&#038;CDAR"
+            android:textSize="17sp"
+            android:textColor="#999"/>
+
+    </LinearLayout>
+
 </LinearLayout>

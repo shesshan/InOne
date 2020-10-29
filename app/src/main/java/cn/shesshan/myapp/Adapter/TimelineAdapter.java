@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.shesshan.myapp.Entity.Entry;
@@ -27,8 +26,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
     @Override
     @NonNull
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.item_info, parent,false));
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolder(inflater.inflate(R.layout.date_items, parent,false));
     }
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
@@ -48,6 +47,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public int getItemCount() {
         return list.size();
     }
+
     @Override
     public int getItemViewType(int position) {
         if (position == 0) {
@@ -55,6 +55,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
         return TYPE_GENERAL;
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvPublisher, tvContent;
         private TextView tvTopLine, tvDot;
