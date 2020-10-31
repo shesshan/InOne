@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="cn.shesshan.myapp.ShowInfoAcitivity">
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvtimeline"
+        android:id="@+id/rvTimeline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:overScrollMode="never" />

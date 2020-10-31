@@ -11,13 +11,13 @@
         <TextView
             android:id="@+id/tvTopLine"
             android:layout_width="0.5dp"
-            android:layout_height="11dp"
+            android:layout_height="12dp"
             android:layout_centerHorizontal="true"
             android:background="#999" />
         <TextView
             android:id="@+id/tvDot"
-            android:layout_width="5dp"
-            android:layout_height="5dp"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
             android:layout_below="@id/tvTopLine"
             android:layout_centerHorizontal="true"
             android:background="@drawable/timeline_dot" />
@@ -35,27 +35,27 @@
         android:id="@+id/right_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="6dp"
+        android:paddingBottom="3dp"
         android:paddingRight="3dp"
-        android:paddingLeft="3dp"
+        android:paddingLeft="0dp"
         android:paddingTop="6dp">
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
             android:text="date"
             android:textColor="#999"
-            android:textSize="13sp" />
+            android:textSize="14sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvinfo"
+            android:id="@+id/rvInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"
             android:layout_below="@id/tvDate"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="6dp"/>
 
     </RelativeLayout>
 </LinearLayout>

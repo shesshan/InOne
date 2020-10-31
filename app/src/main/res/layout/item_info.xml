@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/publisher"
@@ -15,8 +15,8 @@
             android:id="@+id/ivPublisherLogo"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="0.2dp"
+            android:layout_marginTop="0.2dp"
             android:background="@mipmap/swufe_info_logo"
             android:scaleType="centerInside"
             android:tileMode="disabled" />
@@ -29,14 +29,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/publisher"
         android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:layout_margin="8dp"
+        >
 
         <TextView
             android:id="@+id/tvPublisherName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="3dp"
             android:text="经济信息工程学院"
             android:textColor="#000000"
             android:textSize="15sp" />
@@ -45,11 +45,10 @@
             android:id="@+id/tvDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            android:layout_marginRight="5dp"
-            android:text="西南财经大学第三届国际金融科技论坛SWUFE&#038;CDAR"
-            android:textSize="17sp"
-            android:textColor="#999"/>
+            android:layout_marginTop="10dp"
+            android:text="西南财经大学第三届国际金融科技论坛SWUFE&#038;CDAR。"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
 
     </LinearLayout>
 
