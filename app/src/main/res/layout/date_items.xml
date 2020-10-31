@@ -39,7 +39,6 @@
         android:paddingRight="3dp"
         android:paddingLeft="0dp"
         android:paddingTop="6dp">
-
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
@@ -48,7 +47,6 @@
             android:text="date"
             android:textColor="#999"
             android:textSize="14sp" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvInfo"
             android:layout_width="match_parent"
@@ -56,6 +54,5 @@
             android:overScrollMode="never"
             android:layout_below="@id/tvDate"
             android:layout_marginTop="6dp"/>
-
     </RelativeLayout>
 </LinearLayout>

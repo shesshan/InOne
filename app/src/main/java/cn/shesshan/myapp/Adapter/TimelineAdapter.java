@@ -5,17 +5,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cn.shesshan.myapp.Entity.DateContent;
 import cn.shesshan.myapp.Entity.Entry;
+import cn.shesshan.myapp.OnItemClickListener;
 import cn.shesshan.myapp.R;
 import cn.shesshan.myapp.ShowInfoAcitivity;
 
@@ -23,6 +28,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final String TAG="TimelineAdapter";
     private Context context;
     private List<DateContent> dateList;
+
     private static final int TYPE_FIRST = 0x0000;
     private static final int TYPE_GENERAL= 0x0001;
     int count=0;
@@ -32,12 +38,14 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         //inflater = LayoutInflater.from(context);
         this.dateList = list;
     }
+
     // each item inflate a View(布局填充)，并封装到Holder
     @Override
     @NonNull
     public DateContentHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view=LayoutInflater.from(context).inflate(R.layout.date_items, parent,false);
         Log.i(TAG,"Item "+(++count)+" created.");
-        return new DateContentHolder(LayoutInflater.from(context).inflate(R.layout.date_items, parent,false));
+        return new DateContentHolder(view);
     }
     // 渲染数据到View
     @Override
@@ -53,14 +61,24 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         // 点
         dateHolder.tvDot.setBackgroundResource(R.drawable.timeline_dot);
         // 2.设置每日包含信息部分
-        DateContent dateContent=dateList.get(position);
+        final DateContent dateContent=dateList.get(position);
         // 日期
         dateHolder.tvDate.setText(dateContent.getDate());
         // 当日所有信息
         EntryAdapter entryAdapter=new EntryAdapter(context,dateContent.getEntryList());
+        entryAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                // 单击事件处理
+                Toast.makeText(context,
+                        dateContent.getEntryList().get(position).getPublisher(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
         dateHolder.rvInfo.setLayoutManager(new LinearLayoutManager(context));
         dateHolder.rvInfo.setAdapter(entryAdapter);
         dateHolder.rvInfo.setVisibility(View.VISIBLE);
+        dateHolder.itemView.setTag(dateList.get(position));
         Log.i(TAG,"Item "+(position+1)+" bound.");
     }
 

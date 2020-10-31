@@ -14,30 +14,44 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import cn.shesshan.myapp.Entity.Entry;
+import cn.shesshan.myapp.OnItemClickListener;
 import cn.shesshan.myapp.R;
 
 public class EntryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private static final String TAG="EntryAdapter";
     private Context context;
     private List<Entry> entryList;
+    private OnItemClickListener onItemClickListener; // 声明回调接口
     private int count=0;
 
     public EntryAdapter(Context context,List<Entry> entryList){
         this.context=context;
         this.entryList=entryList;
     }
-    @Override
-    @NonNull
-    public EntryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.i(TAG,"Item "+(++count)+" created.");
-        return new EntryHolder(LayoutInflater.from(context).inflate(R.layout.item_info, parent,false));
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
     }
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position){
-        EntryHolder entryHolder=(EntryHolder)holder;
-        // 设置发布者logo
-        entryHolder.ivPublisherLogo.setBackgroundResource(R.mipmap.swufe_info_logo);
+    @NonNull
+    public EntryHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
+        View view=LayoutInflater.from(context).inflate(R.layout.item_info, parent,false);
+        if(onItemClickListener!=null){
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickListener.onItemClick(v,((RecyclerView)parent).getChildAdapterPosition(v));
+                }
+            });
+        }
+        Log.i(TAG,"Item "+(++count)+" created.");
+        return new EntryHolder(view);
+    }
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position){
+        final EntryHolder entryHolder=(EntryHolder)holder;
         Entry entry=entryList.get(position);
+        // 设置发布者logo(Bitmap)
+        entryHolder.ivPublisherLogo.setImageBitmap(entry.getBitLogo());
         // 设置发布者名称
         entryHolder.tvPublisherName.setText(entry.getPublisher());
         // 设置发布内容

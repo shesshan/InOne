@@ -1,5 +1,7 @@
 package cn.shesshan.myapp.Entity;
 
+import android.graphics.Bitmap;
+
 /**
  * 活动概要
  * logo:组织图标
@@ -10,10 +12,12 @@ public class Entry {
     private String logo;
     private String publisher;
     private String content;
+    private Bitmap bitLogo;
 
-    public Entry(String publisher,String content){
+    public Entry(String publisher,String content,Bitmap bitLogo){
         this.publisher=publisher;
         this.content=content;
+        this.bitLogo=bitLogo;
     }
 
     public String getLogo() {
@@ -38,5 +42,13 @@ public class Entry {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Bitmap getBitLogo() {
+        return bitLogo;
+    }
+
+    public void setBitLogo(Bitmap bitLogo) {
+        this.bitLogo = bitLogo;
     }
 }

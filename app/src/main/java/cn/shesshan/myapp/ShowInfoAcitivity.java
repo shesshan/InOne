@@ -1,7 +1,11 @@
 package cn.shesshan.myapp;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,23 +17,43 @@ import java.util.List;
 import cn.shesshan.myapp.Adapter.TimelineAdapter;
 import cn.shesshan.myapp.Entity.DateContent;
 import cn.shesshan.myapp.Entity.Entry;
+import cn.shesshan.myapp.Thread.LoadBitmapThread;
 
 public class ShowInfoAcitivity extends AppCompatActivity {
     private RecyclerView rvTimeline;// RecyclerView控件
     private List<DateContent> dateList=new ArrayList<>();
+    private List<Bitmap> bitTest;
+    private List<String> urls;
+
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            switch (msg.what){
+                case 1:
+                    List<Bitmap> bitmapList=(List<Bitmap>)msg.obj;
+                    bitTest=bitmapList;
+                    break;
+            }
+            initData();
+            super.handleMessage(msg);
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showinfo);
         rvTimeline=findViewById(R.id.rvTimeline);
-        initData();
+        urls.add("");
+        new LoadBitmapThread(handler,urls).start();
     }
 
     public void initData(){
         List<Entry> entryList=new ArrayList<>();
-        for(int i=0;i<10;i++){
-            entryList.add(new Entry("经济信息工程学院","西南财经大学第三届国际金融科技论坛SWUFE&CDAR"));
+        for(int i=0;i<3;i++){
+            entryList.add(new Entry("经济信息工程学院",
+                    "西南财经大学第三届国际金融科技论坛SWUFE&CDAR",
+                    bitTest.get(0)));
         }
         dateList.add(new DateContent("10.31",entryList));
         dateList.add(new DateContent("11.3" ,entryList));
