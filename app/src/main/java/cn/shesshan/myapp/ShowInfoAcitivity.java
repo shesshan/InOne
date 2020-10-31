@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import cn.shesshan.myapp.Entity.Entry;
 import cn.shesshan.myapp.Thread.LoadBitmapThread;
 
 public class ShowInfoAcitivity extends AppCompatActivity {
+    private static final String TAG="ShowInfoAcitivity";
     private RecyclerView rvTimeline;// RecyclerView控件
     private List<DateContent> dateList=new ArrayList<>();
     private List<Bitmap> bitTest;
@@ -30,6 +32,7 @@ public class ShowInfoAcitivity extends AppCompatActivity {
         public void handleMessage(@NonNull Message msg) {
             switch (msg.what){
                 case 1:
+                    Log.i(TAG,"receive message.");
                     List<Bitmap> bitmapList=(List<Bitmap>)msg.obj;
                     bitTest=bitmapList;
                     break;
@@ -44,7 +47,8 @@ public class ShowInfoAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showinfo);
         rvTimeline=findViewById(R.id.rvTimeline);
-        urls.add("");
+        urls=new ArrayList<>();
+        urls.add("https://shesshan.cn/img/swufe_info.png");
         new LoadBitmapThread(handler,urls).start();
     }
 

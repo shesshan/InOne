@@ -46,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
             android:text="西南财经大学第三届国际金融科技论坛SWUFE&#038;CDAR。"
             android:textSize="16sp"
             android:textColor="#000000"/>
