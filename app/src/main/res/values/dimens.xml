@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="details_card_margin">60dp</dimen>
+    <dimen name="card_content_margin">10dp</dimen>
+    <dimen name="card_textview_margin">3dp</dimen>
+    <dimen name="small_icon_margin">2.5dp</dimen>
+    <dimen name="small_icon_size">25dp</dimen>
+    <dimen name="entry_rightPart_margin">8dp</dimen>
+    <dimen name="entry_content_marginVertical">8dp</dimen>
+    <dimen name="entry_padding">7dp</dimen>
+    <dimen name="entry_marginVertical">1.5dp</dimen>
+    <dimen name="entry_marginRight">10dp</dimen>
+    <dimen name="card_logo_size">35dp</dimen>
+    <dimen name="entry_logo_size">45dp</dimen>
+    <dimen name="publisher_name_size">13sp</dimen>
+    <dimen name="content_size">15sp</dimen>
+</resources>

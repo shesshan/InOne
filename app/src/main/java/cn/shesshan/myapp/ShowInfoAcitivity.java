@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ public class ShowInfoAcitivity extends AppCompatActivity {
     private List<DateContent> dateList=new ArrayList<>();
     private List<Bitmap> bitTest;
     private List<String> urls;
+    private View grayLayout;
 
     private Handler handler=new Handler(){
         @Override
@@ -47,6 +49,7 @@ public class ShowInfoAcitivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showinfo);
         rvTimeline=findViewById(R.id.rvTimeline);
+        grayLayout=findViewById(R.id.gray_layout);
         urls=new ArrayList<>();
         urls.add("https://shesshan.cn/img/swufe_info.png");
         new LoadBitmapThread(handler,urls).start();
@@ -56,7 +59,7 @@ public class ShowInfoAcitivity extends AppCompatActivity {
         List<Entry> entryList=new ArrayList<>();
         for(int i=0;i<3;i++){
             entryList.add(new Entry("经济信息工程学院",
-                    "西南财经大学第三届国际金融科技论坛SWUFE&CDAR",
+                    i+": 西南财经大学第三届国际金融科技论坛SWUFE&CDAR",
                     bitTest.get(0)));
         }
         dateList.add(new DateContent("10.31",entryList));
@@ -65,6 +68,6 @@ public class ShowInfoAcitivity extends AppCompatActivity {
         // 设置布局管理器：线性展示item，默认方向vertical
         rvTimeline.setLayoutManager(new LinearLayoutManager(ShowInfoAcitivity.this));
         // 设置适配器Adapter：渲染数据
-        rvTimeline.setAdapter(new TimelineAdapter(ShowInfoAcitivity.this,dateList));
+        rvTimeline.setAdapter(new TimelineAdapter(ShowInfoAcitivity.this,dateList,grayLayout));
     }
 }

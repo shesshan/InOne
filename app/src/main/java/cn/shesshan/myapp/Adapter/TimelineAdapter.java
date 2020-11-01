@@ -2,10 +2,15 @@ package cn.shesshan.myapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ClipDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,15 +37,17 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final String TAG="TimelineAdapter";
     private Context context;
     private List<DateContent> dateList;
+    private View grayLayout;
+    private boolean isPopWindowShowing=false;
 
     private static final int TYPE_FIRST = 0x0000;
     private static final int TYPE_GENERAL= 0x0001;
     int count=0;
 
-    public TimelineAdapter(Context context, List<DateContent> list) {
+    public TimelineAdapter(Context context, List<DateContent> list,View grayLayout) {
         this.context=context;
-        //inflater = LayoutInflater.from(context);
-        this.dateList = list;
+        this.dateList=list;
+        this.grayLayout=grayLayout;
     }
 
     // each item inflate a View(布局填充)，并封装到Holder
@@ -73,9 +80,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         entryAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                // 单击事件处理
-                // Toast.makeText(context,dateContent.getEntryList().get(position).getPublisher(),Toast.LENGTH_SHORT).show();
-                showDetails(context);
+                // 单击事件处理:悬浮窗PopupWindow
+                showDetails(context,dateContent.getEntryList().get(position));
             }
         });
         dateHolder.rvInfo.setLayoutManager(new LinearLayoutManager(context));
@@ -110,8 +116,44 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    public void showDetails(Context context){
-        Intent showdetails = new Intent(context, DetailsActivity.class);
-        context.startActivity(showdetails);
+    public void showDetails(Context context,Entry entry){
+        // 背景变暗
+        grayLayout.setVisibility(View.VISIBLE);
+        // 出现悬浮窗
+        View view = LayoutInflater.from(context).inflate(
+                R.layout.card_details, null,false);
+        TextView tvDetails=view.findViewById(R.id.tvDetails);
+        tvDetails.setText(entry.getContent());
+        final PopupWindow popupWindow = new PopupWindow(view,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        //popupWindow.setBackgroundDrawable(new ColorDrawable(0xb0000000));
+        popupWindow.showAtLocation(view,Gravity.CENTER, 0, 0);
+        // 点击背景部分，浮窗消失
+        grayLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isPopWindowShowing){
+                    popupWindow.getContentView().postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            popupWindow.dismiss();
+                        }
+                    },2000);
+                }
+            }
+        });
+
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                isPopWindowShowing=false;
+                grayLayout.setVisibility(View.GONE);
+            }
+        });
+        isPopWindowShowing=true;
     }
 }

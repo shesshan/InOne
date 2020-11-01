@@ -6,14 +6,15 @@
     android:orientation="horizontal">
 
     <RelativeLayout
-        android:layout_width="30dp"
-        android:layout_height="match_parent">
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp">
         <TextView
             android:id="@+id/tvTopLine"
             android:layout_width="0.5dp"
             android:layout_height="12dp"
             android:layout_centerHorizontal="true"
-            android:background="#999" />
+            android:background="#5C5B5B" />
         <TextView
             android:id="@+id/tvDot"
             android:layout_width="6dp"
@@ -21,38 +22,33 @@
             android:layout_below="@id/tvTopLine"
             android:layout_centerHorizontal="true"
             android:background="@drawable/timeline_dot" />
-
         <TextView
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
             android:layout_below="@id/tvDot"
             android:layout_centerHorizontal="true"
-            android:background="#999" />
+            android:background="#5C5B5B" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/right_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="3dp"
-        android:paddingRight="3dp"
-        android:paddingLeft="0dp"
-        android:paddingTop="6dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
+            android:layout_marginTop="0.5dp"
             android:text="date"
-            android:textColor="#999"
-            android:textSize="14sp" />
+            android:textColor="#5C5B5B"
+            android:textSize="@dimen/publisher_name_size" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"
-            android:layout_below="@id/tvDate"
-            android:layout_marginTop="6dp"/>
+            android:layout_below="@id/tvDate" />
     </RelativeLayout>
 </LinearLayout>
