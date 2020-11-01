@@ -1,6 +1,7 @@
 package cn.shesshan.myapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +19,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cn.shesshan.myapp.DetailsActivity;
 import cn.shesshan.myapp.Entity.DateContent;
 import cn.shesshan.myapp.Entity.Entry;
 import cn.shesshan.myapp.OnItemClickListener;
 import cn.shesshan.myapp.R;
 import cn.shesshan.myapp.ShowInfoAcitivity;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final String TAG="TimelineAdapter";
@@ -70,9 +74,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             @Override
             public void onItemClick(View view, int position) {
                 // 单击事件处理
-                Toast.makeText(context,
-                        dateContent.getEntryList().get(position).getPublisher(),
-                        Toast.LENGTH_SHORT).show();
+                // Toast.makeText(context,dateContent.getEntryList().get(position).getPublisher(),Toast.LENGTH_SHORT).show();
+                showDetails(context);
             }
         });
         dateHolder.rvInfo.setLayoutManager(new LinearLayoutManager(context));
@@ -105,5 +108,10 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             tvDate=itemView.findViewById(R.id.tvDate);
             rvInfo=itemView.findViewById(R.id.rvInfo);
         }
+    }
+
+    public void showDetails(Context context){
+        Intent showdetails = new Intent(context, DetailsActivity.class);
+        context.startActivity(showdetails);
     }
 }
