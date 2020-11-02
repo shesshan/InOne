@@ -58,17 +58,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="经济信息工程学院"
-                    android:textColor="#000000"
+                    android:textColor="@color/date_color"
                     android:textSize="@dimen/publisher_name_size" />
 
                 <TextView
                     android:id="@+id/tvDetails"
                     android:layout_width="match_parent"
-                    android:layout_height="39dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/entry_content_marginVertical"
                     android:text="西南财经大学第三届国际金融科技论坛SWUFE&#038;CDAR。"
                     android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
         </LinearLayout>

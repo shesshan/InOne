@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="0.5dp"
             android:text="date"
-            android:textColor="#5C5B5B"
+            android:textColor="@color/date_color"
             android:textSize="@dimen/publisher_name_size" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvInfo"

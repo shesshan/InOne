@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/details_card_margin"
         android:elevation="100dp"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="@dimen/card_cornerRadius"
         app:cardBackgroundColor="#F5FFFFFF">
 
         <LinearLayout
@@ -45,7 +45,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="8dp"
                     android:text="经济信息工程学院"
-                    android:textColor="#000000"
+                    android:textColor="@color/date_color"
                     android:textSize="@dimen/publisher_name_size" />
 
             </LinearLayout>
@@ -87,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/card_textview_margin"
-                    android:text="#嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻寻寻寻嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻寻寻寻寻嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻寻寻寻寻"
+                    android:text="#寻寻寻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻寻寻"
                     android:textColor="#000000"
                     android:textSize="@dimen/content_size" />
             </LinearLayout>

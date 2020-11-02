@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import cn.shesshan.myapp.Adapter.PagerAdapter;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG="MainActivity";
+    private static final String TAG = "MainActivity";
     private ViewPager2 viewPager2;
     private FragmentStateAdapter pagerAdapter;
     private ImageView ivArrange;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        pagerAdapter=new PagerAdapter(this,3);
+        pagerAdapter = new PagerAdapter(this, 3);
         viewPager2.setAdapter(pagerAdapter);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -42,78 +42,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // 初始化组件
-    public void initView(){
-        viewPager2=findViewById(R.id.vpContent);
-        ivArrange=findViewById(R.id.ivArrange);
-        tvMain=findViewById(R.id.tvMain);
-        tvMe=findViewById(R.id.tvMe);
+    public void initView() {
+        viewPager2 = findViewById(R.id.vpContent);
+        ivArrange = findViewById(R.id.ivArrange);
+        tvMain = findViewById(R.id.tvMain);
+        tvMe = findViewById(R.id.tvMe);
     }
-    // 恢复底部组件原貌
-    public void resumeClick(){
-        TextPaint tp;
-        tp=tvMain.getPaint();
-        tp.setFakeBoldText(false);
-        tp=tvMe.getPaint();
-        tp.setFakeBoldText(false);
-        ivArrange.setBackgroundResource(R.drawable.test);
+
+    /**
+     * 恢复底部组件原貌
+     */
+    public void resumeClick() {
+        tvMain.getPaint().setFakeBoldText(false);
         tvMain.setTextColor(ContextCompat.getColor(this,R.color.bottomTabFont));
+        tvMe.getPaint().setFakeBoldText(false);
         tvMe.setTextColor(ContextCompat.getColor(this,R.color.bottomTabFont));
+        ivArrange.setBackgroundResource(R.drawable.card);
     }
-    // 点击底部组件事件处理
+
+    /**
+     * 点击底部组件事件处理
+     */
     @Override
-    public void onClick(View view){
+    public void onClick(View view) {
         resumeClick();
-        TextPaint tp;
-        switch (view.getId()){
+        Log.i(TAG, "last page: " + viewPager2.getCurrentItem());
+        switch (view.getId()) {
             case R.id.tvMain:
-                //tvMain.setTextSize(R.dimen.bottomTab_selected_font_size);// 字体变大
-                tp = tvMain.getPaint();
-                tp.setFakeBoldText(true);
-                tvMain.setTextColor(ContextCompat.getColor(this,R.color.bottomTabFontSelected)); // 字体颜色变深
-                Log.i(TAG,"last page: "+viewPager2.getCurrentItem());
-                viewPager2.setCurrentItem(0,false);
+                tvMain.getPaint().setFakeBoldText(true);// 字体加粗
+                tvMain.setTextColor(ContextCompat.getColor(this, R.color.bottomTabFontSelected)); // 字体颜色变深
+                viewPager2.setCurrentItem(0, false);
                 break;
             case R.id.tvMe:
-                //tvMe.setTextSize(R.dimen.bottomTab_selected_font_size);// 字体变大
-                tp = tvMe.getPaint();
-                tp.setFakeBoldText(true);// 字体加粗
-                tvMe.setTextColor(ContextCompat.getColor(this,R.color.bottomTabFontSelected)); // 字体颜色变深
-                Log.i(TAG,"last page: "+viewPager2.getCurrentItem());
-                viewPager2.setCurrentItem(2,false);
+                tvMe.getPaint().setFakeBoldText(true);// 字体加粗
+                tvMe.setTextColor(ContextCompat.getColor(this, R.color.bottomTabFontSelected)); // 字体颜色变深
+                viewPager2.setCurrentItem(2, false);
                 break;
             case R.id.ivArrange:
-                ivArrange.setBackgroundResource(R.drawable.test_selected);// 图标改变
-                Log.i(TAG,"last page: "+viewPager2.getCurrentItem());
-                viewPager2.setCurrentItem(1,false);
+                ivArrange.setBackgroundResource(R.drawable.card_fill);// 图标改变
+                viewPager2.setCurrentItem(1, false);
                 break;
         }
     }
-    // 页面滑动事件处理
-    public void onPageChanged(int position){
+
+    /**
+     * 页面滑动事件处理
+     */
+    public void onPageChanged(int position) {
         resumeClick();
-        TextPaint tp;
-        switch (position){
+        switch (position) {
             case 0:
-                Log.i("Main: ","Page "+viewPager2.getCurrentItem());
-                //tvMain.setTextSize(R.dimen.bottomTab_selected_font_size);// 字体变大
-                tp = tvMain.getPaint();
-                tp.setFakeBoldText(true);// 字体加粗
-                tvMain.setTextColor(ContextCompat.getColor(this,R.color.bottomTabFontSelected)); // 字体颜色变深
+                tvMain.getPaint().setFakeBoldText(true);// 字体加粗
+                tvMain.setTextColor(ContextCompat.getColor(this, R.color.bottomTabFontSelected)); // 字体颜色变深
                 break;
             case 1:
-                Log.i("Arrange: ","Page "+viewPager2.getCurrentItem());
-                ivArrange.setBackgroundResource(R.drawable.test_selected);// 图标改变
+                ivArrange.setBackgroundResource(R.drawable.card_fill);// 图标改变
                 break;
             case 2:
-                Log.i("Me: ","Page "+viewPager2.getCurrentItem());
-                //tvMe.setTextSize(R.dimen.bottomTab_selected_font_size);// 字体变大
-                tp = tvMe.getPaint();
-                tp.setFakeBoldText(true);// 字体加粗
-                tvMe.setTextColor(ContextCompat.getColor(this,R.color.bottomTabFontSelected)); // 字体颜色变深
+                tvMe.getPaint().setFakeBoldText(true);// 字体加粗
+                tvMe.setTextColor(ContextCompat.getColor(this, R.color.bottomTabFontSelected)); // 字体颜色变深
                 break;
         }
-    }
-    public void changeSelectedView(View view){
-
     }
 }

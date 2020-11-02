@@ -14,7 +14,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpContent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_above="@+id/llBottomTab" />
 
         <LinearLayout
@@ -34,8 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingVertical="4dp"
-                android:baselineAligned="false">
+                android:paddingVertical="3dp"
+                android:baselineAligned="false"
+                android:background="#ffffff">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -46,10 +47,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="@string/small_icon_test"
+                        android:text="@string/main"
                         android:textColor="@color/bottomTabFont"
                         android:textSize="@dimen/bottomTab_font_size"
-                        android:padding="4dp"/>
+                        android:padding="@dimen/bottomTab_font_pdd"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -57,13 +58,16 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <ImageView
                         android:id="@+id/ivArrange"
-                        android:layout_width="@dimen/small_icon_size"
-                        android:layout_height="@dimen/small_icon_size"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/test"
-                        android:layout_marginVertical="3dp"/>
+                        android:layout_width="@dimen/bottomTab_icon_size"
+                        android:layout_height="@dimen/bottomTab_icon_size"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="4dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/card" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -76,10 +80,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="@string/small_icon_test"
+                        android:text="@string/me"
                         android:textSize="@dimen/bottomTab_font_size"
                         android:textColor="@color/bottomTabFont"
-                        android:padding="4dp"/>
+                        android:padding="@dimen/bottomTab_font_pdd"/>
                 </LinearLayout>
             </LinearLayout>
 
