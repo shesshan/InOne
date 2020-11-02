@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.shesshan.myapp.ShowInfoAcitivity">
+    tools:context="cn.shesshan.myapp.Page.ShowInfoFragment">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTimeline"
         android:layout_width="match_parent"

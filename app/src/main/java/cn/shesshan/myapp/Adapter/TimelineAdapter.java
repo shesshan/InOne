@@ -1,37 +1,25 @@
 package cn.shesshan.myapp.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.ClipDrawable;
-import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import cn.shesshan.myapp.DetailsActivity;
 import cn.shesshan.myapp.Entity.DateContent;
 import cn.shesshan.myapp.Entity.Entry;
 import cn.shesshan.myapp.OnItemClickListener;
 import cn.shesshan.myapp.R;
-import cn.shesshan.myapp.ShowInfoAcitivity;
-
-import static androidx.core.content.ContextCompat.startActivity;
 
 public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final String TAG="TimelineAdapter";
@@ -39,6 +27,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private List<DateContent> dateList;
     private View grayLayout;
     private boolean isPopWindowShowing=false;
+    private boolean isLikeSelected=false;
 
     private static final int TYPE_FIRST = 0x0000;
     private static final int TYPE_GENERAL= 0x0001;
@@ -119,19 +108,21 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void showDetails(Context context,Entry entry){
         // 背景变暗
         grayLayout.setVisibility(View.VISIBLE);
-        // 出现悬浮窗
         View view = LayoutInflater.from(context).inflate(
                 R.layout.card_details, null,false);
-        TextView tvDetails=view.findViewById(R.id.tvDetails);
-        tvDetails.setText(entry.getContent());
+        // 设置组件
+        onCreatePopupWindow(view,entry);
+
+        // 设置悬浮窗体
         final PopupWindow popupWindow = new PopupWindow(view,
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
         popupWindow.setFocusable(true);
+        popupWindow.setTouchable(true);
         popupWindow.setOutsideTouchable(true);
-        //popupWindow.setBackgroundDrawable(new ColorDrawable(0xb0000000));
         popupWindow.showAtLocation(view,Gravity.CENTER, 0, 0);
+
         // 点击背景部分，浮窗消失
         grayLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,7 +133,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                         public void run() {
                             popupWindow.dismiss();
                         }
-                    },2000);
+                    },3000);
                 }
             }
         });
@@ -150,10 +141,29 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
-                isPopWindowShowing=false;
                 grayLayout.setVisibility(View.GONE);
+                isPopWindowShowing=false;
             }
         });
         isPopWindowShowing=true;
+    }
+
+    public void onCreatePopupWindow(View view,Entry entry){
+        TextView tvDetails=view.findViewById(R.id.tvDetails);
+        tvDetails.setText(entry.getContent());
+        final ImageView ivLike=view.findViewById(R.id.ivLike);
+        ivLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isLikeSelected){
+                    ivLike.setBackgroundResource(R.drawable.like);
+                    isLikeSelected=false;
+                }
+                else{
+                    ivLike.setBackgroundResource(R.drawable.like_selected);
+                    isLikeSelected=true;
+                }
+            }
+        });
     }
 }

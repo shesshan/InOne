@@ -3,4 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="dividerLine">#C6B6B6B6</color>
+    <color name="tabDividerLine">#CEDAD9D9</color>
+    <color name="bottomTabFont">#817E7E</color>
+    <color name="bottomTabFontSelected">#303030</color>
 </resources>
