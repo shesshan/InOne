@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvMain.setTextColor(ContextCompat.getColor(this,R.color.bottomTabFont));
         tvMe.getPaint().setFakeBoldText(false);
         tvMe.setTextColor(ContextCompat.getColor(this,R.color.bottomTabFont));
-        ivArrange.setBackgroundResource(R.drawable.card);
+        ivArrange.setBackgroundResource(R.drawable.find);
     }
 
     /**
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 viewPager2.setCurrentItem(2, false);
                 break;
             case R.id.ivArrange:
-                ivArrange.setBackgroundResource(R.drawable.card_fill);// 图标改变
+                ivArrange.setBackgroundResource(R.drawable.find_fill);// 图标改变
                 viewPager2.setCurrentItem(1, false);
                 break;
         }
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tvMain.setTextColor(ContextCompat.getColor(this, R.color.bottomTabFontSelected)); // 字体颜色变深
                 break;
             case 1:
-                ivArrange.setBackgroundResource(R.drawable.card_fill);// 图标改变
+                ivArrange.setBackgroundResource(R.drawable.find_fill);// 图标改变
                 break;
             case 2:
                 tvMe.getPaint().setFakeBoldText(true);// 字体加粗

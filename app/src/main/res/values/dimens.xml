@@ -20,4 +20,5 @@
     <dimen name="bottomTab_selected_font_size">15.5sp</dimen>
     <dimen name="bottomTab_font_pdd">8dp</dimen>
     <dimen name="card_cornerRadius">20dp</dimen>
+    <dimen name="tab_indicator_height">1.2dp</dimen>
 </resources>
