@@ -2,39 +2,39 @@ package cn.shesshan.myapp.Adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
 
-import cn.shesshan.myapp.Page.SquareFragment;
+import cn.shesshan.myapp.Page.ArrangeFragment;
+import cn.shesshan.myapp.Page.FocusFragment;
+import cn.shesshan.myapp.Page.LikeFragment;
 import cn.shesshan.myapp.Page.MeFragment;
 import cn.shesshan.myapp.Page.ShowInfoFragment;
+import cn.shesshan.myapp.Page.SquareFragment;
 
-public class PagerAdapter extends FragmentStateAdapter {
-
+public class MePagerAdapter extends FragmentStateAdapter {
     private int pageNum;
-    private FragmentActivity fragmentActivity;
-    private ViewPager2 mainViewPager;
 
-    public PagerAdapter(FragmentActivity fragmentActivity, int pageNum, ViewPager2 viewPager2){
+    public MePagerAdapter(FragmentActivity fragmentActivity, int pageNum){
         super(fragmentActivity);
-        this.fragmentActivity=fragmentActivity;
         this.pageNum=pageNum;
-        this.mainViewPager=viewPager2;
     }
-
     @Override
     public Fragment createFragment(int position) {
         Fragment fragment;
         switch (position){
+            // 兴趣
             case 0:
-                fragment=new ShowInfoFragment();
+                fragment=new LikeFragment();
                 break;
+            // 日程
             case 1:
-                fragment=new SquareFragment();
+                fragment=new ArrangeFragment();
                 break;
+            // 关注
             case 2:
-                // 将父ViewPager2传给子ViewPager2
-                fragment=new MeFragment(fragmentActivity,mainViewPager);
+                fragment=new FocusFragment();
                 break;
             default:
                 fragment=new Fragment();
@@ -46,5 +46,4 @@ public class PagerAdapter extends FragmentStateAdapter {
     public int getItemCount(){
         return pageNum;
     }
-
 }

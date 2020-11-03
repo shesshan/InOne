@@ -11,12 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import cn.shesshan.myapp.R;
 
-public class ArrangeFragment extends Fragment {
-
+public class LikeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_timeline,container);
+        return inflater.inflate(R.layout.basic_rv,container);
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

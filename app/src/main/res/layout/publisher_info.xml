@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="3dp">
+
+    <ImageView
+        android:id="@+id/ivPublisherLogo"
+        android:layout_width="@dimen/entry_logo_size"
+        android:layout_height="@dimen/entry_logo_size"
+        android:background="@mipmap/swufe_info_logo"
+        android:layout_marginLeft="0.2dp"
+        android:layout_marginTop="0.2dp"/>
+
+    <TextView
+        android:id="@+id/tvPublisherName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="@dimen/entry_rightPart_margin"
+        android:text="经济信息工程学院"
+        android:textColor="@color/date_color"
+        android:textSize="@dimen/publisher_name_size" />
+
+</LinearLayout>

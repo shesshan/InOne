@@ -38,6 +38,7 @@
                     app:layout_collapseParallaxMultiplier="0.5" />
 
                 <ImageView
+                    android:id="@+id/ivGrayLayer"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/gray_layer"></ImageView>
@@ -45,22 +46,24 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginTop="120dp"
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/ivUserLogo"
                         android:layout_width="@dimen/portrait_size"
                         android:layout_height="@dimen/portrait_size"
-                        android:layout_marginLeft="45dp"
+                        android:layout_marginLeft="50dp"
                         android:background="@mipmap/portrait"></ImageView>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="15dp"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tvUserName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
@@ -69,6 +72,7 @@
                             android:textSize="15sp"></TextView>
 
                         <TextView
+                            android:id="@+id/tvUserID"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -93,7 +97,7 @@
 
         <!-- Pinned Tab -->
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabBar"
+            android:id="@+id/topTabBar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/top_tab_height"
             android:layout_marginHorizontal="20dp"
@@ -111,14 +115,16 @@
             app:tabTextAppearance="@style/tabText">
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabLike"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/like" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabArrange"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/add" />
+                android:text="@string/arrange" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
@@ -130,13 +136,16 @@
 
     <!-- ScrollView Part-->
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mePager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></androidx.viewpager2.widget.ViewPager2>
+            android:layout_height="match_parent">
+        </androidx.viewpager2.widget.ViewPager2>
 
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -28,13 +28,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        pagerAdapter = new PagerAdapter(this, 3);
+        pagerAdapter = new PagerAdapter(this, 3,viewPager2);
         viewPager2.setAdapter(pagerAdapter);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
                 onPageChanged(position);
+                Log.i(TAG,String.valueOf(viewPager2.getCurrentItem()));
+                // 只有前两个fragment可以响应滑动
+                viewPager2.setUserInputEnabled(viewPager2.getCurrentItem()<=1);
             }
         });
         ivArrange.setOnClickListener(this);

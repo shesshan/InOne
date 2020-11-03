@@ -11,17 +11,12 @@
         android:id="@+id/innerBar"
         layout="@layout/general_bar">
     </include>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTimeline"
+    <include
+        android:id="timeLine"
+        layout="@layout/fragment_timeline"
+        android:layout_below="@id/innerBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        android:layout_below="@+id/innerBar"/>
-    <View
-        android:id="@+id/gray_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="#77252424" />
+        android:layout_height="wrap_content">
+    </include>
 
 </RelativeLayout>
