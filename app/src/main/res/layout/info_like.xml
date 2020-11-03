@@ -9,8 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tab_test" />
-    <include layout="@layout/item_info">
 
-    </include>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLike"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

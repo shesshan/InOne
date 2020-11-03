@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import cn.shesshan.myapp.R;
 
+/**
+ * 展示关注组织(rv：info_publisher.xml)
+ */
 public class FocusFragment extends Fragment {
     @Nullable
     @Override

@@ -34,7 +34,7 @@ public class EntryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     @Override
     @NonNull
     public EntryHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(context).inflate(R.layout.item_info, parent,false);
+        View view=LayoutInflater.from(context).inflate(R.layout.info_item, parent,false);
         if(onItemClickListener!=null){
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

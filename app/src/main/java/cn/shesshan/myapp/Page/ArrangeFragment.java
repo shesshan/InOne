@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import cn.shesshan.myapp.R;
 
+/**
+ * 和主界面Fragment1一样:时间选择器+时间轴
+ */
 public class ArrangeFragment extends Fragment {
 
     @Nullable

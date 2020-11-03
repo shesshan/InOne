@@ -53,6 +53,7 @@ public class MeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
+        // 解决nestedScrollView,viewpager2滑动冲突
         nestedScrollView.setFillViewport(true);
         mePager.setAdapter(new MePagerAdapter(getActivity(),3));
 
@@ -68,6 +69,7 @@ public class MeFragment extends Fragment {
                     }
                 }).attach();
 
+        // 解决嵌套viewpager2滑动冲突
         mePager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             private int curPos=0; // 当前滑动位置
             private int oldPos=0; // 上一个滑动位置
