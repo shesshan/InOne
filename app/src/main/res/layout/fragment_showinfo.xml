@@ -6,12 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="cn.shesshan.myapp.Page.ShowInfoFragment">
+
+    <include
+        android:id="@+id/innerBar"
+        layout="@layout/general_bar">
+    </include>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTimeline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never" />
-
+        android:overScrollMode="never"
+        android:layout_below="@+id/innerBar"/>
     <View
         android:id="@+id/gray_layout"
         android:layout_width="match_parent"

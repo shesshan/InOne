@@ -1,6 +1,7 @@
 package cn.shesshan.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // 初始化组件
     public void initView() {
+        //setSupportActionBar((Toolbar)findViewById(R.id.generalBar));
         viewPager2 = findViewById(R.id.vpContent);
         ivArrange = findViewById(R.id.ivArrange);
         tvMain = findViewById(R.id.tvMain);
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 viewPager2.setCurrentItem(0, false);
                 break;
             case R.id.tvMe:
+                //getActionBar().hide();
                 tvMe.getPaint().setFakeBoldText(true);// 字体加粗
                 tvMe.setTextColor(ContextCompat.getColor(this, R.color.bottomTabFontSelected)); // 字体颜色变深
                 viewPager2.setCurrentItem(2, false);
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ivArrange.setBackgroundResource(R.drawable.find_fill);// 图标改变
                 break;
             case 2:
+                //getActionBar().hide();
                 tvMe.getPaint().setFakeBoldText(true);// 字体加粗
                 tvMe.setTextColor(ContextCompat.getColor(this, R.color.bottomTabFontSelected)); // 字体颜色变深
                 break;
