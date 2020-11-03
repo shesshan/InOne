@@ -9,12 +9,13 @@
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#fff"
         android:fitsSystemWindows="false">
         <!-- Tool Bar -->
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingBar"
             android:layout_width="match_parent"
-            android:layout_height="270dp"
+            android:layout_height="260dp"
             android:fitsSystemWindows="false"
             app:contentScrim="@color/collapsingBar"
             app:collapsedTitleGravity="left"
@@ -95,31 +96,34 @@
             android:id="@+id/tabBar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/top_tab_height"
+            android:layout_marginHorizontal="20dp"
             android:layout_gravity="bottom"
             android:background="@color/tab_color"
             android:padding="2dp"
             app:layout_scrollFlags="scroll"
+            app:tabBackground="@android:color/transparent"
+            app:tabRippleColor="@android:color/transparent"
             app:tabIndicatorColor="@color/customPrimary"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorGravity="bottom"
             app:tabIndicatorHeight="@dimen/tab_indicator_height"
             app:tabSelectedTextColor="@color/tab_selected_font_color"
-            app:tabTextColor="@color/tab_font_color">
+            app:tabTextAppearance="@style/tabText">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/tab_test" />
+                android:text="@string/like" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/tab_test" />
+                android:text="@string/add" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/tab_test" />
+                android:text="@string/focus" />
         </com.google.android.material.tabs.TabLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
