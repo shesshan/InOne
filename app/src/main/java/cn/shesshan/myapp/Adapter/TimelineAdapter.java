@@ -171,8 +171,8 @@ public class TimelineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         // 加载图片
         Glide.with(context).load(entry.getLogoURI()).into(ivPublisherLogo);
-        tvTime.setText(entry.getMessage().getTime());
-        tvPlace.setText(entry.getMessage().getPlace());
+        tvTime.setText("时间："+entry.getMessage().getTime());
+        tvPlace.setText("地点："+entry.getMessage().getPlace());
         tvPublisherName.setText(entry.getPublisher());
         tvDetails.setText(entry.getContent());
 

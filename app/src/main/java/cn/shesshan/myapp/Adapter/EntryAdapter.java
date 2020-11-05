@@ -78,7 +78,7 @@ public class EntryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 break;
             case 1:
                 Log.i(TAG,"Bind data for ===> like");
-                // 设置发布者logo(测试)
+                // 设置发布者logo
                 Glide.with(context).load(entry.getLogoURI()).into(entryHolder.getIvPublisherLogo());
                 // 设置小心心
                 // entryHolder.getIvLikeSelected().setBackgroundResource(R.drawable.like_selected);
@@ -95,15 +95,29 @@ public class EntryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 });
                 break;
             case 2:
-                // 设置发布者logo(测试)
+                // 设置发布者logo
                 Glide.with(context).load(entry.getLogoURI()).into(entryHolder.getIvPublisherLogo());
                 // 设置删除图标
                 entryHolder.getIvCancel().setBackgroundResource(R.drawable.cancel);
+                entryHolder.getIvCancel().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        removeData(position);
+                    }
+                });
         }
     }
     @Override
     public int getItemCount(){
         return entryList.size();
+    }
+
+    //  删除数据
+    public void removeData(int position) {
+        entryList.remove(position);
+        //删除动画
+        notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
 
     public class EntryHolder extends RecyclerView.ViewHolder{

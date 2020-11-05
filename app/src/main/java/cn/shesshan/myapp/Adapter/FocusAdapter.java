@@ -1,6 +1,7 @@
 package cn.shesshan.myapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import cn.shesshan.myapp.Activity.MainActivity;
+import cn.shesshan.myapp.Activity.PublisherActivity;
 import cn.shesshan.myapp.Entity.Entry;
 import cn.shesshan.myapp.R;
 
@@ -37,7 +40,7 @@ public class FocusAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position){
         final FocusHolder focusHolder=(FocusHolder)holder;
-        Entry entry=entryList.get(position);
+        final Entry entry=entryList.get(position);
         Glide.with(context).load(entry.getLogoURI()).into(focusHolder.getIvPublisherLogo());
         focusHolder.getTvPublisherName().setText(entry.getPublisher());
         focusHolder.getIvFocusSelected().setBackgroundResource(R.mipmap.focus_selected);
@@ -50,6 +53,14 @@ public class FocusAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 else
                     focusHolder.getIvFocusSelected().setBackgroundResource(R.mipmap.focus_selected);
                 isFocusSelected=(!isFocusSelected);
+            }
+        });
+        focusHolder.getIvPublisherLogo().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, PublisherActivity.class);
+                intent.putExtra("publisherName",entry.getPublisher());
+                ((MainActivity)context).startActivity(intent);
             }
         });
     }
