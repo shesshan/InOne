@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cn.shesshan.myapp.Page.ShowInfoFragment">
+    tools:context="cn.shesshan.myapp.Fragment.ShowInfoFragment">
 
     <include
         android:id="@+id/innerBar"
         layout="@layout/general_bar">
     </include>
     <include
-        android:id="timeLine"
+        android:id="@+id/rvInfo"
         layout="@layout/fragment_timeline"
         android:layout_below="@id/innerBar"
         android:layout_width="match_parent"

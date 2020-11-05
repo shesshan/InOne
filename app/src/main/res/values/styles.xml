@@ -9,13 +9,21 @@
         <item name="actionBarSize">46dp</item>
         <item name="android:label">@string/app_name</item>
     </style>
+    <style name="publisherBarTheme">
+        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimaryDark">#ffffff</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarSize">46dp</item>
+        <item name="actionBarSize">46dp</item>
+        <item name="android:label">@string/app_name</item>
+    </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
     <style name="expandedTitleText">
-        <item name="android:text">@string/tab_test</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">#000000</item>
     </style>
     <style name="collapsedTitleText">
@@ -25,7 +33,16 @@
     </style>
     <style name="tabText">
         <item name="android:text">@string/tab_test</item>
-        <item name="android:textSize">@dimen/bottomTab_font_size</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/tab_font_color</item>
+    </style>
+    <style name="dateText">
+        <item name="android:text">@string/tab_test</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#E8A19C9C</item>
+    </style>
+    <style name="loginInput">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/login_button_color</item>
     </style>
 </resources>

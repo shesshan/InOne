@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/item_back_color"
+    android:layout_marginVertical="@dimen/entry_marginVertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:paddingVertical="3dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentLeft="true">
+                <ImageView
+                    android:id="@+id/ivPublisherLogo"
+                    android:layout_width="@dimen/entry_logo_size"
+                    android:layout_height="@dimen/entry_logo_size"
+                    android:layout_marginLeft="0.2dp"
+                    android:layout_marginTop="0.2dp"
+                    android:background="@mipmap/swufe_info_logo" />
+
+                <TextView
+                    android:id="@+id/tvPublisherName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/entry_rightPart_margin"
+                    android:layout_marginTop="14dp"
+                    android:text="经济信息工程学院"
+                    android:textColor="@color/date_color"
+                    android:textSize="@dimen/publisher_name_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true">
+                <ImageView
+                    android:id="@+id/ivFocusSelected"
+                    android:layout_width="@dimen/focus_icon_size"
+                    android:layout_height="@dimen/focus_icon_size"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/focus" />
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tvDivider2"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_weight="1"
+            android:background="#A1D8D8D8" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/tvLikeDate"
+    android:layout_height="wrap_content"
+    android:background="@color/item_back_color">
+<RelativeLayout
+    android:id="@+id/rlLike"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <include
+        layout="@layout/info_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tab_test" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="60dp">
+    </include>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvLike"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+    <ImageView
+        android:id="@+id/ivLikeSelected"
+        android:layout_width="@dimen/small_icon_size"
+        android:layout_height="@dimen/small_icon_size"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/like_selected" />
+</RelativeLayout>
 
 </LinearLayout>

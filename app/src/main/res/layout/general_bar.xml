@@ -9,6 +9,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/customPrimary"
         android:theme="@style/AppTheme"
+        android:navigationIcon="@drawable/time"
         android:title="@string/app_name"
         android:titleTextAppearance="@style/collapsedTitleText"></Toolbar>
 </LinearLayout>

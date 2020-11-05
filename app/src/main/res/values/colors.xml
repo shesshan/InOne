@@ -14,5 +14,8 @@
     <color name="tab_color">#FFFFFF</color>
     <color name="tab_font_color">#7D7687</color>
     <color name="tab_selected_font_color">#403D47</color>
-    <color name="gray_layer">#97252424</color>
+    <color name="gray_layer">#8F2E2D2D</color>
+    <color name="item_back_color">#FFFFFF</color>
+    <color name="login_button_color">#95E6E5E5</color>
+    <color name="login_input">#C4B8B7B7</color>
 </resources>

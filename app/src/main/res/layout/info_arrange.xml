@@ -2,27 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/item_back_color"
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/llArrange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-        <include
-            layout="@layout/info_item"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"></include>
-
-        <ImageView
-            android:id="@+id/ivCancel"
-            android:layout_width="@dimen/small_icon_size"
-            android:layout_height="@dimen/small_icon_size"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="7dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/cancel" />
-
+        <RelativeLayout
+            android:id="@+id/rlArrange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+                layout="@layout/info_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="60dp">
+            </include>
+            <ImageView
+                android:id="@+id/ivCancel"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/cancel" />
+        </RelativeLayout>
     </LinearLayout>
-
+    <TextView
+        android:id="@+id/tvDivider2"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_weight="1"
+        android:background="#A1D8D8D8" />
 </LinearLayout>

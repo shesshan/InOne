@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <!-- 此处：添加时间选择器！ -->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTimeline"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        android:layout_below="@+id/innerBar"/>
+        android:layout_height="wrap_content" />
+
     <View
         android:id="@+id/gray_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        android:background="#77252424" />
+        android:background="#77252424"
+        android:visibility="gone" />
 </RelativeLayout>

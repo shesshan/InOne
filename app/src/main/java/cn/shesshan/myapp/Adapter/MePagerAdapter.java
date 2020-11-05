@@ -2,16 +2,11 @@ package cn.shesshan.myapp.Adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import cn.shesshan.myapp.Page.ArrangeFragment;
-import cn.shesshan.myapp.Page.FocusFragment;
-import cn.shesshan.myapp.Page.LikeFragment;
-import cn.shesshan.myapp.Page.MeFragment;
-import cn.shesshan.myapp.Page.ShowInfoFragment;
-import cn.shesshan.myapp.Page.SquareFragment;
+import cn.shesshan.myapp.Fragment.ArrangeFragment;
+import cn.shesshan.myapp.Fragment.FocusFragment;
+import cn.shesshan.myapp.Fragment.LikeFragment;
 
 public class MePagerAdapter extends FragmentStateAdapter {
     private int pageNum;

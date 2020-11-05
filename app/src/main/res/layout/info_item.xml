@@ -5,27 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginVertical="@dimen/entry_marginVertical"
-    android:layout_marginRight="10dp"
+    android:background="@color/item_back_color"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="0dp"
-        app:cardBackgroundColor="#FFFFFF"
+        app:cardBackgroundColor="@color/item_back_color"
         app:cardCornerRadius="0dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="@dimen/entry_padding">
-
             <LinearLayout
                 android:id="@+id/leftPart"
                 android:layout_width="wrap_content"
@@ -71,18 +68,6 @@
                     android:textSize="14sp" />
 
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvDivider2"
-                android:layout_width="match_parent"
-                android:layout_height="0.2dp"
-                android:layout_weight="1"
-                android:background="#A1D8D8D8" />
         </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

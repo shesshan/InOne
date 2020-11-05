@@ -5,15 +5,18 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import cn.shesshan.myapp.Page.SquareFragment;
-import cn.shesshan.myapp.Page.MeFragment;
-import cn.shesshan.myapp.Page.ShowInfoFragment;
+import java.util.List;
+
+import cn.shesshan.myapp.Fragment.SquareFragment;
+import cn.shesshan.myapp.Fragment.MeFragment;
+import cn.shesshan.myapp.Fragment.ShowInfoFragment;
 
 public class PagerAdapter extends FragmentStateAdapter {
 
     private int pageNum;
     private FragmentActivity fragmentActivity;
     private ViewPager2 mainViewPager;
+    private List<String> urls;
 
     public PagerAdapter(FragmentActivity fragmentActivity, int pageNum, ViewPager2 viewPager2){
         super(fragmentActivity);
