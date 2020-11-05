@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import cn.shesshan.myapp.R;
 
+/**
+ * @author shesshan
+ */
 public class EnterActivity extends AppCompatActivity {
     private SharedPreferences sp;
     @Override
