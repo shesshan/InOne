@@ -5,6 +5,6 @@
 <img src="/inone_poster.png" width = "90%" />
 
 
-- `InOne` collects news🗞 from multiple online sources in one single app. 
+- `InOne` collects news🗞 from multiple online sources to one single platform. 
 
 - The news present in `InOne` could be a tweet, a notice from website or a message from GroupChat.
